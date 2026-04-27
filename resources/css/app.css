@@ -1,0 +1,343 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+/* ===== EVERY - LOGIN ===== */
+
+.site-header {
+    font-weight: 700;
+    font-size: 2.5rem;
+    padding: 1.5rem 0.5rem;
+    line-height: 0.8;
+    background-color: #ffeddd;
+    border-bottom: 1px dashed #333;
+}
+
+.site-header span {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #444;
+}
+
+.page-antique {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 16px;
+    line-height: 1.35;
+    color: #000;
+    background: #ffffee;
+}
+
+.page-antique a:link {
+    color: #000080;
+}
+
+.page-antique a:visited {
+    color: #551a8b;
+}
+
+.page-antique a:active {
+    color: #c00000;
+}
+
+.ascii-banner {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 13px;
+    margin: 0.5em 0;
+    white-space: pre-wrap;
+    background: #f0f0e0;
+    border: 1px solid #333;
+    padding: 0.5em;
+}
+
+.nav-old {
+    margin: 0.25em 0.2rem;
+    position: relative;
+}
+
+a.unavailable:hover {
+    cursor: not-allowed;
+    position: relative;
+}
+
+.nav-old .here {
+    position: absolute;
+    right: 0;
+}
+
+.footer-old {
+    font-size: 14px;
+    font-style: normal;
+    margin-top: 1em;
+    padding: 0 1rem;
+}
+
+.login-table {
+    border-color: #333;
+    background: #ffffee;
+    border: 1px solid #333;
+}
+
+.login-table td {
+    border-color: #333;
+    vertical-align: top;
+    padding: 1rem 2rem;
+}
+
+.login-table h2 {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin: 0 0 0.5em;
+    text-decoration: underline;
+}
+
+button {
+    margin-top: 0.5rem;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 0.1rem 0.25rem;
+    border: 1.5px solid #333;
+    border-color: #eee #333 #333 #eee;
+    background-color: white;
+}
+
+button:active {
+    border-color: #eee;
+    scale: 0.98;
+}
+
+.page-antique input[type="email"],
+.page-antique input[type="password"],
+.page-antique input[type="text"] {
+    font-family: inherit;
+    font-size: inherit;
+    background: #fff;
+    border: 1px inset #999;
+    max-width: 100%;
+}
+
+.page-antique #notifier-login,
+.page-antique #notifier-signup {
+    color: #800000;
+    font-size: 0.95em;
+}
+
+/* --- Home dashboard (tabs, still plain) --- */
+
+.dashboard-antique {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 16px;
+    line-height: 1.35;
+    color: #000;
+    background: #ffffee;
+    padding: 2vh 2vw;
+    height: 100vh;
+    margin: 0 auto;
+}
+
+.dashboard-antique a:link {
+    color: #000080;
+}
+
+.dashboard-antique a:visited {
+    color: #551a8b;
+}
+
+.dashboard-title {
+    font-size: 2.25em;
+    font-weight: 700;
+    margin: 0 0 0.25em;
+}
+
+.dashboard-antique hr {
+    border: none;
+    border-top: 1px solid #333;
+    margin: 0.75em 0;
+}
+
+/* Hide radios; labels act as tabs */
+.dash-tabs input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    margin: 0;
+}
+
+.dash-tab-labels {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    border-bottom: 1px solid #333;
+    margin-bottom: 0.75em;
+}
+
+.dash-tab-labels label {
+    display: inline-block;
+    padding: 0.2em 0.75em;
+    margin: 0 0.15em 0 0;
+    border: 1px solid #333;
+    border-bottom: none;
+    background: #e8e4d0;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.dash-tab-labels label:hover {
+    background: #f5f2dc;
+}
+
+#dash-tab-overview:checked ~ .dash-tab-labels label[for="dash-tab-overview"],
+#dash-tab-expenses:checked ~ .dash-tab-labels label[for="dash-tab-expenses"],
+#dash-tab-accounts:checked ~ .dash-tab-labels label[for="dash-tab-accounts"],
+#dash-tab-settings:checked ~ .dash-tab-labels label[for="dash-tab-settings"] {
+    background: #ffffee;
+    margin-bottom: -1px;
+    padding-bottom: calc(0.2em + 1px);
+}
+
+.dash-panels .dash-panel {
+    display: none;
+    min-height: 8rem;
+    border: 1px solid #333;
+    padding: 0.75em;
+    background: #fffef8;
+}
+
+#dash-tab-overview:checked ~ .dash-panels .dash-panel--overview,
+#dash-tab-expenses:checked ~ .dash-panels .dash-panel--expenses,
+#dash-tab-accounts:checked ~ .dash-panels .dash-panel--accounts,
+#dash-tab-settings:checked ~ .dash-panels .dash-panel--settings {
+    display: block;
+}
+
+.dash-panel h3 {
+    font-size: 1.05em;
+    margin: 0 0 0.5em;
+    text-decoration: underline;
+}
+
+.dash-panel table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 28rem;
+}
+
+.dash-panel th,
+.dash-panel td {
+    border: 1px solid #333;
+    padding: 0.25em 0.5em;
+    text-align: left;
+}
+
+.dash-panel th {
+    background: #e8e4d0;
+}
+
+.dash-panel--expenses fieldset {
+    border: 1px solid #333;
+    padding: 0.2rem 0.5rem 1rem;
+}
+
+.dash-panel--expenses form * {
+    margin-top: 3px;
+}
+
+.dash-panel--expenses input {
+    font-family: inherit;
+    font-size: inherit;
+    background: #fff;
+    border: 1px inset #999;
+    max-width: 100%;
+}
+
+.dash-panel input[type="radio"] {
+    position: initial;
+    opacity: initial;
+    width: initial;
+    height: initial;
+    margin: initial;
+}
+
+div:where(.for-onetime, .for-recurring) {
+    display: none;
+}
+
+#one-time:checked ~ div.for-onetime,
+#recurring:checked ~ div.for-recurring {
+    display: block;
+}
+
+#open-label-browser {
+    font-size: 0.8em;
+    padding: 0.05rem;
+}
+
+.label-browser {
+    margin: 0.25rem 0;
+    padding: 0.25rem;
+    border: 1px dotted #333;
+    background-color: #fffadd;
+    max-width: 60vw;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.cutting-edge {
+    position: absolute;
+    right: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    font-weight: 700;
+}
+
+p:has(> .cutting-edge) {
+    position: relative;
+}
+
+.backdrop {
+    position: fixed;
+    inset: 0 0 0 60vw;
+    background: linear-gradient(to right, transparent 40%, rgba(101, 101, 178, 0.75));
+    opacity: 0;
+    translate: 70%;
+    transition: all 0.3s ease;
+}
+
+.backdrop.hovered {
+    opacity: 1;
+    translate: 0;
+}
+
+.backdrop h1 {
+    font-weight: 800;
+    font-size: 3rem;
+    text-align: center;
+}
+
+.expense-label {
+    padding: 0.25rem;
+    background-color: #fff09e;
+}
+
+.expense-label:hover {
+    filter: brightness(0.95);
+    cursor: pointer;
+}
+
+.expense-label.selected {
+    background-color: #c8ff9e;
+}
+
+#notifier {
+    color: rgb(117, 0, 0);
+    font-size: 0.85rem;
+}
